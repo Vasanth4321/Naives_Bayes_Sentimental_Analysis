@@ -1,101 +1,109 @@
-# Naive Bayes Restaurant Review Sentiment Analysis
+# 🏛️ Naive Bayes Restaurant Review Sentiment Analysis
 
-An end-to-end sentiment analysis project that classifies restaurant reviews as positive or negative using a **Naive** Bayes classifier and an interactive Streamlit web application.
+[![Live App](https://img.shields.io/badge/Live%20App-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://naivesbayessentimentalanalysis-8d955uosdengaiuad2xfkx.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-NaiveBayes-orange?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![NLTK](https://img.shields.io/badge/NLTK-NLP-green?style=for-the-badge)](https://www.nltk.org/)
 
-🔗 **Live App:**  
-[https://naivesbayessentimentalanalysis-8d955uosdengaiuad2xfkx.streamlit.app/](https://naivesbayessentimentalanalysis-8d955uosdengaiuad2xfkx.streamlit.app/)
+An end-to-end **NLP sentiment analysis** project that classifies restaurant reviews as **Positive** or **Negative** using a Naive Bayes classifier, NLTK text preprocessing, and a live Streamlit web application.
 
+## 🚀 Live App
 
-## Project Overview
+👉 **[Click here to try the app](https://naivesbayessentimentalanalysis-8d955uosdengaiuad2xfkx.streamlit.app/)**
 
-This project focuses on understanding customer opinions about restaurants by analyzing text reviews.  
-The pipeline covers data cleaning, text preprocessing, feature extraction, model training, evaluation, and deployment as a user-friendly web app.
+---
 
-Key goals:
+## 📌 Project Overview
 
-- Build a text classification model for restaurant review sentiment.  
-- Enable users to input custom reviews and instantly see predicted sentiment.  
+This project focuses on understanding customer opinions about restaurants by analyzing text reviews. The full pipeline covers data cleaning, text preprocessing, feature extraction, model training, evaluation, and deployment as a user-friendly web app.
+
+**Key Goals:**
+- Build a text classification model for restaurant review sentiment.
+- Enable users to input custom reviews and instantly see predicted sentiment.
 - Deploy the model using Streamlit for easy web access.
 
+---
 
-## Features
+## ✨ Features
 
-- Text preprocessing (lowercasing, removing noise, tokenization, stopword removal, etc.).  
-- Feature extraction with techniques like Bag-of-Words or TF-IDF (depending on your implementation).  
-- Naive Bayes classifier trained on labeled restaurant review data.  
-- Interactive Streamlit UI to:
-  - Enter a restaurant review
-  - View predicted sentiment (Positive/Negative)
-  - See basic model output in real time  
+- Text preprocessing using NLTK (lowercasing, regex cleaning, tokenization, stopword removal, lemmatization)
+- Feature extraction using **CountVectorizer** (Bag-of-Words)
+- **Multinomial Naive Bayes** classifier trained on labeled restaurant review data
+- Saved model and vectorizer as `.pkl` files for fast inference
+- Interactive **Streamlit UI** to:
+  - Enter any restaurant review
+  - Instantly see **Positive** ✅ or **Negative** 🚨 prediction
 
+---
 
-## Tech Stack
+## 🧠 How It Works
 
-- **Programming Language:** Python  
-- **Libraries (Core):**  
-  - scikit-learn (Naive Bayes, train-test split, metrics)  
-  - pandas, numpy (data handling)  
-  - nltk or similar (text preprocessing, stopwords)
-- **Web Framework:** Streamlit
-- **Deployment:** Streamlit Community Cloud
+1. **Input** — User enters a restaurant review in the text box
+2. **Preprocessing** — Text is cleaned using regex, lowercased, tokenized, stopwords removed, and lemmatized
+3. **Vectorization** — Cleaned text is transformed using the saved `CountVectorizer`
+4. **Prediction** — The trained Naive Bayes model predicts Positive (1) or Negative (0)
+5. **Output** — Result displayed instantly on screen
 
+**Example:**
+> "The food was amazing and the service was great!" → ✅ Positive Review
 
-## How It Works
+> "Worst experience ever, food was cold and staff was rude." → 🚨 Negative Review
 
-1. **Data Ingestion**  
-   - Load restaurant review dataset with text and sentiment labels (e.g., positive/negative).
+---
 
-2. **Preprocessing**  
-   - Clean text (remove punctuation, special characters, etc.).  
-   - Convert to lowercase, remove stopwords, optionally apply stemming/lemmatization.
+## 🛠️ Tech Stack
 
-3. **Feature Extraction**  
-   - Transform text into numerical vectors using CountVectorizer or TfidfVectorizer.
+| Category | Tools |
+|----------|-------|
+| **Language** | Python |
+| **NLP** | NLTK (tokenization, stopwords, lemmatization) |
+| **ML Algorithm** | Naive Bayes (MultinomialNB) |
+| **Feature Extraction** | CountVectorizer (scikit-learn) |
+| **Libraries** | scikit-learn, pandas, numpy, pickle |
+| **Web Framework** | Streamlit |
+| **Deployment** | Streamlit Community Cloud |
 
-4. **Model Training**  
-   - Train a Naive Bayes classifier (e.g., MultinomialNB) on the vectorized reviews.
-   - Evaluate using accuracy and other metrics on a test set.
+---
 
-5. **Deployment**  
-   - Wrap preprocessing + model prediction into a function.  
-   - Expose this via a Streamlit interface for real-time predictions.
+## 📁 Project Structure
 
-## Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Vasanth4321/Naives_Bayes_Sentimental_Analysis.git
-cd Naives_Bayes_Sentimental_Analysis
+```
+Naives_Bayes_Sentimental_Analysis/
+│
+├── streamlit.py                        # Main Streamlit app
+├── Naives_Bayes_Sentimental_Analysis.pkl  # Trained Naive Bayes model
+├── vectorizer.pkl                      # Saved CountVectorizer
+├── Naives_Bayes_Senti...               # Jupyter notebook (EDA + training)
+├── output.csv                          # Dataset
+├── requirements.txt                    # Python dependencies
+└── README.md
 ```
 
-### 2. (Optional) Create a Virtual Environment
-```bash
-python -m venv venv
-venv\Scripts\activate        # Windows
-# source venv/bin/activate   # macOS/Linux
-```
+---
 
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+## ⚙️ Run Locally
 
-### 4. Run the App Locally
-```bash
-streamlit run app.py
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Vasanth4321/Naives_Bayes_Sentimental_Analysis.git
+   cd Naives_Bayes_Sentimental_Analysis
+   ```
 
-##### Open the URL shown in your terminal (usually http://localhost:8501).
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Usage
-- Open the live app or run it locally.
-- Enter a restaurant review in the text box.
-- Click the predict button to see whether the sentiment is Positive or Negative.
+3. **Run the app**
+   ```bash
+   streamlit run streamlit.py
+   ```
 
-## Example:
+4. Open your browser at `http://localhost:8501`
 
-> "The ambience was great and the food was delicious!" → Positive
+---
 
-## Author
-Venkata Sai Vasanth Neeli
+## 🙋 Author
+
+**Venkata Sai Vasanth Neeli**  
+[![GitHub](https://img.shields.io/badge/GitHub-Vasanth4321-black?style=flat&logo=github)](https://github.com/Vasanth4321)

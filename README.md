@@ -1,0 +1,1 @@
+# Naives_Bayes_Sentimental_Analysis
